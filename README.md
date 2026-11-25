@@ -27,3 +27,6 @@ Se detectan automáticamente archivos base y sufijos -1 a -9 (OGG o MP3), median
 
 ## v0.3.3
 Dos referencias visuales de baile incorporadas. Se corrige la cancelación accidental de la búsqueda multimedia y se conserva el historial anterior. No se reconoce por nombre de archivo.
+
+## v0.3.4
+Añadida referencia visual moda. Busca son/moda.ogg, son/moda.mp4 y variantes numeradas.
