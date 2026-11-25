@@ -24,3 +24,6 @@ Se detectan automáticamente archivos base y sufijos -1 a -9 (OGG o MP3), median
 - Incluye un video de prueba: `son/baile.mp4`.
 
 **Importante:** la lógica de contenido para `baile` está lista, pero su reconocimiento por cámara dependerá de que la imagen `baile` exista también dentro de tus referencias visuales. En esta versión no pude agregar esa referencia porque la imagen `baile` no fue adjuntada aquí.
+
+## v0.3.3
+Dos referencias visuales de baile incorporadas. Se corrige la cancelación accidental de la búsqueda multimedia y se conserva el historial anterior. No se reconoce por nombre de archivo.

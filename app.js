@@ -20,6 +20,7 @@ let mediaEpoch=0, activeMedia=null, currentOptions=[], currentPlayer=null;
 const explored=new Set();
 try{for(const key of JSON.parse(localStorage.getItem('tan-yo-explored-v2')||'[]'))explored.add(key)}catch{}
 
+try{for(const key of JSON.parse(localStorage.getItem('tan-yo-heard-v1')||'[]'))explored.add(key+':audio')}catch{}
 function saveExplored(){try{localStorage.setItem('tan-yo-explored-v2',JSON.stringify([...explored]))}catch{}}
 function resetMedia(){
   mediaEpoch++;
@@ -73,8 +74,8 @@ function bindPlayerEvents(player, option){
   },{once:true});
 }
 async function playPhoto(p){
-  const token=++mediaEpoch;
   resetMedia();
+  const token=++mediaEpoch;
   mediaPanel.hidden=false;
   mediaStatus.textContent='Buscando contenido…';
   const options=await discoverMedia(p.id);
@@ -91,6 +92,7 @@ async function playPhoto(p){
 }
 async function playMedia(option){
   const token=++mediaEpoch;
+  currentPlayer?.pause();
   activeMedia=option.uid;
   mediaPanel.hidden=false;
   mediaContainer.replaceChildren();
@@ -150,10 +152,6 @@ function home(){app.innerHTML='<section class="hero"><div class="eyebrow">Una ex
 async function camera(){
   app.innerHTML='<h2>Encuentra una imagen</h2><div class="screen"><video playsinline muted autoplay></video><div class="frame"></div></div><p role="status">Solicitando cámara…</p><div class="actions"><button class="secondary" id="retry">Reintentar</button><label class="button secondary">Leer desde archivo<input type="file" accept="image/*" hidden></label><a class="button secondary" href="#inicio">Volver</a></div>';
   let token=epoch,v=el('video'),status=el('[role=status]'),canvas=document.createElement('canvas'),ctx=canvas.getContext('2d',{willReadFrequently:true});
-  function fromFilename(name){
-    const base=(name||'').toLowerCase().replace(/\.[^.]+$/,'');
-    return photos.find(p=>p.id===base||base.startsWith(`${p.id}-`)) || null;
-  }
   function scan(img,w,h){
     let scale=Math.min(1,640/Math.max(w,h));
     canvas.width=Math.round(w*scale);canvas.height=Math.round(h*scale);
@@ -174,10 +172,6 @@ async function camera(){
       let r=scan(img,img.width,img.height);
       img.close();
       if(token!==epoch) return;
-      if(!r){
-        const named=fromFilename(file.name);
-        if(named) r={route:`foto/${named.id}`};
-      }
       if(r) go(r.route);
       else status.textContent='No se reconoció la imagen. Prueba una foto frontal y bien iluminada.';
     }catch{status.textContent='No se pudo abrir la foto.'}
