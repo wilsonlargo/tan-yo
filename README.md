@@ -30,3 +30,6 @@ Dos referencias visuales de baile incorporadas. Se corrige la cancelación accid
 
 ## v0.3.4
 Añadida referencia visual moda. Busca son/moda.ogg, son/moda.mp4 y variantes numeradas.
+
+## v0.3.5
+Baile incluye el Short de YouTube mQuUApUJyvk, que sustituye a baile.mp4. Los audios baile.ogg, baile-1.ogg y demás sufijos siguen disponibles, así como videos locales numerados. El video externo puede requerir pulsar reproducir o abrir YouTube; se marca como visto manualmente.

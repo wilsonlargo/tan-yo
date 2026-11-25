@@ -4,6 +4,9 @@ const VIDEO_EXTS=['mp4','webm'];
 export async function discoverMedia(id, fetcher=fetch, limit=10){
   const candidates=Array.from({length:limit},(_,i)=>i?`${id}-${i}`:id);
   const items=(await Promise.all(candidates.map(key=>probeKey(key,fetcher)))).flat().filter(Boolean);
+  if(id==='baile') {
+    return [...items.filter(o=>!(o.key===id && o.kind==='video')), {uid:'baile:youtube:mQuUApUJyvk',key:id,kind:'video',youtubeId:'mQuUApUJyvk',url:'https://youtube.com/shorts/mQuUApUJyvk?si=JZxn3ozsIv6ynN3T'}];
+  }
   return items;
 }
 

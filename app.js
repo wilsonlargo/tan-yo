@@ -99,6 +99,25 @@ async function playMedia(option){
   mediaStatus.textContent='';
   renderChoices();
 
+  if(option.youtubeId){
+    currentPlayer=null;
+    mediaReplay.hidden=true;
+    const frame=document.createElement('iframe');
+    frame.src=`https://www.youtube-nocookie.com/embed/${option.youtubeId}?autoplay=1&playsinline=1`;
+    frame.title='Video de baile';
+    frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+    frame.allowFullscreen=true;
+    frame.className='youtube-player';
+    const link=document.createElement('a');
+    link.href=option.url; link.target='_blank'; link.rel='noopener noreferrer';
+    link.className='button secondary'; link.textContent='Ver en YouTube';
+    const done=document.createElement('button');
+    done.className='secondary';
+    done.textContent=explored.has(option.uid)?'Ya visto':'Marcar como visto';
+    done.onclick=()=>{explored.add(option.uid);saveExplored();renderChoices();done.textContent='Ya visto';};
+    mediaContainer.append(frame,link,done);
+    return;
+  }
   const player=document.createElement(option.kind);
   player.controls=true;
   player.playsInline=true;
