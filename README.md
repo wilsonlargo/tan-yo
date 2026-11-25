@@ -9,3 +9,6 @@ Crear repositorio vacío tan-yo en GitHub y subir los archivos de esta carpeta a
 
 ## Editar
 content.js contiene los contenidos. Tipos: audio, video (añadir src), animation, question, reveal, link. markers.js contiene los patrones. No incluye administrador persistente ni reconocimiento de ilustraciones libres. El detector experimental requiere pruebas físicas y no está diseñado para inclinaciones extremas o sombras fuertes. El audio y enlace son provisionales.
+
+## v0.2.0
+Primer grupo de imágenes en `img/`, logo y nombres en `photos.js`. El escáner experimental compara la apariencia completa de la fotografía impresa (no identifica personas ni usa modelos biométricos). Enfocar de frente, con la imagen centrada, visible completa y con los mismos márgenes que el archivo original. La comparación es sensible a perspectiva, recortes, rotación y reflejos; puede rechazar imágenes o confundirlas. Los botones Probar permiten verificar las experiencias sin cámara. Los marcadores anteriores se conservan. Las fotos están incluidas en el sitio estático: obtener autorización antes de publicar, incluso con repositorio privado si el sitio es público. No subir imágenes de visitantes; el procesamiento es local.
