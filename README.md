@@ -1,14 +1,9 @@
-# tan-yo 0.1.0
-Web estática sin dependencias ni base de datos. Cinco marcadores geométricos provisionales (no son QR). Reconocimiento local experimental.
+# tan-yo v0.2.2
 
-## Probar
-Ejecutar `python3 -m http.server 8000` en esta carpeta y abrir http://localhost:8000. En teléfonos usar HTTPS (Vercel). Imprimir los símbolos desde la aplicación, conservar el borde blanco y usar unos 5 cm. Buena luz y vista frontal. También se puede cargar una foto o abrir la experiencia con Probar. El audio requiere pulsar reproducir.
+Aplicación web estática. Ejecutar `python3 -m http.server 8000` y visitar localhost:8000. En Vercel usar HTTPS, framework Other, sin compilación. Permitir cámara y encuadrar la impresión completa. La aplicación compara patrones de la imagen impresa, no utiliza un modelo de identificación de personas.
 
-## Publicar
-Crear repositorio vacío tan-yo en GitHub y subir los archivos de esta carpeta a su raíz. Importar en Vercel, Framework Preset Other, sin comando de build ni directorio de salida personalizado. No requiere variables de entorno.
+El motor compara puntos locales, parches normalizados y consistencia geométrica con 21 referencias (7 impresiones, 3 orientaciones). Se necesitan dos coincidencias consecutivas en cámara. Se mantienen los marcadores de prueba anteriores. Las imágenes originales no se distribuyen en este ZIP, excepto el logo; references.json contiene descriptores visuales derivados, accesibles al cliente, no es almacenamiento privado ni anonimización garantizada.
 
-## Editar
-content.js contiene los contenidos. Tipos: audio, video (añadir src), animation, question, reveal, link. markers.js contiene los patrones. No incluye administrador persistente ni reconocimiento de ilustraciones libres. El detector experimental requiere pruebas físicas y no está diseñado para inclinaciones extremas o sombras fuertes. El audio y enlace son provisionales.
+Al actualizar una copia anterior, eliminar los siete JPEG del directorio img (conservar logo.jpeg); si estaban en Git, usar git rm. El historial anterior puede conservarlos. Si hay despliegues previos públicos, también pueden seguir accesibles. Para contenidos sensibles revisar permisos y despliegues anteriores.
 
-## v0.2.0
-Primer grupo de imágenes en `img/`, logo y nombres en `photos.js`. El escáner experimental compara la apariencia completa de la fotografía impresa (no identifica personas ni usa modelos biométricos). Enfocar de frente, con la imagen centrada, visible completa y con los mismos márgenes que el archivo original. La comparación es sensible a perspectiva, recortes, rotación y reflejos; puede rechazar imágenes o confundirlas. Los botones Probar permiten verificar las experiencias sin cámara. Los marcadores anteriores se conservan. Las fotos están incluidas en el sitio estático: obtener autorización antes de publicar, incluso con repositorio privado si el sitio es público. No subir imágenes de visitantes; el procesamiento es local.
+Pruebas locales del algoritmo: 7/7 originales, 7/7 con escala .65, brillo .8 y desenfoque .6; 6/7 con esos cambios y rotación 8 grados. Xiomy rotada fue rechazada. No se han validado cámaras reales, rendimiento móvil ni despliegue. No hay dependencia externa.
