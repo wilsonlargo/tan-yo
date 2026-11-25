@@ -13,3 +13,14 @@ Conservar la carpeta son del proyecto local. Archivos: gordo.ogg, necho.ogg, jua
 
 ## Audios alternativos
 Se detectan automáticamente archivos base y sufijos -1 a -9 (OGG o MP3), mediante solicitudes HEAD. Si hay varios sin escuchar, se ofrecen opciones. Si queda exactamente uno pendiente, se intenta reproducir automáticamente. Se marca escuchado únicamente al terminar; el historial queda en localStorage del navegador. Si todos fueron escuchados, se ofrecen nuevamente. No se reproducen archivos seguidos sin decisión del visitante. Conservar son/ local.
+
+
+## Novedades v0.3.2
+
+- Soporte para videos MP4/WebM además de audios OGG/MP3/WAV/M4A.
+- Detección automática por nombre base del archivo en `son/`.
+- Ejemplo: `baile.mp4`, `baile-1.mp4`, `necho.ogg`, `necho-1.ogg`.
+- Si una imagen tiene un solo contenido, se abre automáticamente. Si tiene varios, la app pregunta cuál reproducir.
+- Incluye un video de prueba: `son/baile.mp4`.
+
+**Importante:** la lógica de contenido para `baile` está lista, pero su reconocimiento por cámara dependerá de que la imagen `baile` exista también dentro de tus referencias visuales. En esta versión no pude agregar esa referencia porque la imagen `baile` no fue adjuntada aquí.
