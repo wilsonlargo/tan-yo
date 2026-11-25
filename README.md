@@ -33,3 +33,8 @@ Añadida referencia visual moda. Busca son/moda.ogg, son/moda.mp4 y variantes nu
 
 ## v0.3.5
 Baile incluye el Short de YouTube mQuUApUJyvk, que sustituye a baile.mp4. Los audios baile.ogg, baile-1.ogg y demás sufijos siguen disponibles, así como videos locales numerados. El video externo puede requerir pulsar reproducir o abrir YouTube; se marca como visto manualmente.
+
+## v0.3.6
+
+- Nueva referencia visual Comida, con variantes de orientación. Busca `son/comida.ogg`, `son/comida-1.ogg`, `son/comida.mp4` y otras variantes compatibles.
+- Se conservan las referencias y contenidos anteriores.
